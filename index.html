@@ -1,115 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>One-Person IT & IAM for Startups</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Remote IT & IAM contractor helping startups and small business manage identity, SaaS, and security without full-time headcount.">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 760px;
-      margin: 60px auto;
-      padding: 0 20px;
-      color: #111;
-      line-height: 1.6;
-    }
-    h1 { font-size: 2.2em; }
-    h2 { margin-top: 2em; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iuri Rocco | Identity, Access & Security Operations</title>
+    <meta name="description" content="Expert IAM & SaaS Security for remote-first startups. Ex-Indeed, Ex-Netskope.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animations Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    a {
-      color: #0057ff;
-      text-decoration: none;
-    }
+    <style>
+        :root {
+            --bg: #0a0a0c;
+            --card-bg: #16161a;
+            --accent: #0057ff;
+            --accent-glow: rgba(0, 87, 255, 0.3);
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+            --border: #27272a;
+        }
 
-    .buttons {
-      margin-top: 24px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    a.button {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 12px 20px;
-      border: 1px solid #0057ff;
-      border-radius: 6px;
-      color: #0057ff;
-      font-weight: 500;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    a.button.primary {
-      background-color: #0057ff;
-      color: #fff;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    a.button.secondary {
-      border-color: #999;
-      color: #333;
-    }
+        /* --- Navigation --- */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    a.button:hover {
-      opacity: 0.9;
-    }
-  </style>
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent); }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .badge {
+            background: rgba(0, 87, 255, 0.1);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--accent);
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- Buttons --- */
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--text-dim);
+        }
+
+        /* --- Services Grid --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 { font-size: 2rem; font-weight: 700; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover { border-color: var(--accent); }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .card h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; }
+
+        /* --- Experience Timeline --- */
+        .experience {
+            background: var(--card-bg);
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin-bottom: 100px;
+        }
+
+        .job {
+            border-left: 2px solid var(--border);
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .job::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .job h4 { font-size: 1.2rem; margin-bottom: 4px; }
+        .job .company { color: var(--accent); font-weight: 600; margin-bottom: 12px; display: block; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-dim);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0; }
+            .job-meta { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
-<h1>One-Person IT & IAM for Startups</h1>
+    <div class="container">
+        <nav>
+            <div class="logo">IURI<span>ROCCO</span></div>
+            <div class="btn-group">
+                <a href="mailto:iuri@rocco-tech.com" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Contact</a>
+            </div>
+        </nav>
 
-<p>I help small, remote-first companies run secure, scalable IT without hiring a full internal team.</p>
+        <section class="hero">
+            <div class="badge" data-aos="fade-down">Available for Q1 2026 Projects</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Identity, Access, and Security Operations — done right.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">I help remote-first startups scale secure IT infrastructure without the overhead of a full-time team. Ex-Indeed & Netskope.</p>
+            
+            <div class="btn-group" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://calendar.app.google/vverzYajXJ9RC8j86" target="_blank" class="btn btn-primary">
+                    <i class="fa-regular fa-calendar"></i> Book a 15-min intro
+                </a>
+                <a href="https://www.linkedin.com/in/iuri-rocco-20aa0428/" target="_blank" class="btn btn-secondary">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
 
-<div class="buttons">
-  <a class="button primary" href="https://calendar.app.google/vverzYajXJ9RC8j86" target="_blank">
-    Book a 15-min intro
-  </a>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Core Expertise</h2>
+        </div>
 
-  <a class="button secondary" href="https://www.linkedin.com/in/iuri-rocco-20aa0428/?locale=en_US" target="_blank">
-    LinkedIn
-  </a>
+        <div class="grid">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fa-solid fa-fingerprint"></i>
+                <h3>IAM Foundations</h3>
+                <p>Full ownership of Okta, Google Workspace, and AD. Implementation of RBAC frameworks that scale with your headcount.</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Audit Readiness</h3>
+                <p>Evidence collection and remediation for SOC2 and JSOX. Continuous SaaS security audits to maintain compliance posture.</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fa-solid fa-arrows-spin"></i>
+                <h3>Lifecycle Automation</h3>
+                <p>Automated Joiner, Mover, and Leaver workflows. Zero-touch provisioning for Slack, Zoom, and enterprise apps.</p>
+            </div>
+        </div>
 
-  <a class="button secondary" href="mailto:iuri@rocco-tech.com">
-    Email
-  </a>
-</div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Professional Background</h2>
+        </div>
 
-<h2>What I Own</h2>
-<ul>
-  <li>Identity & access management (Okta, Google Workspace, SaaS)</li>
-  <li>Joiner / mover / leaver workflows</li>
-  <li>SaaS security audits and access reviews</li>
-  <li>Remote IT support and documentation</li>
-</ul>
+        <div class="experience" data-aos="fade-up">
+            <div class="job">
+                <div class="job-meta">
+                    <span>IT Application Engineer</span>
+                    <span>2025 — 2026</span>
+                </div>
+                <span class="company">Netskope (Remote)</span>
+                <p>Led IAM and security operations across Google Workspace, Okta, and Slack. Focused on strengthening access controls and audit readiness for global enterprise platforms.</p>
+            </div>
 
-<h2>How I Work</h2>
-<ul>
-  <li>Remote contractor (LATAM / PJ, 1099-equivalent)</li>
-  <li>US time-zone overlap</li>
-  <li>Monthly invoice, no payroll complexity</li>
-</ul>
+            <div class="job">
+                <div class="job-meta">
+                    <span>IAM Analyst</span>
+                    <span>2021 — 2025</span>
+                </div>
+                <span class="company">Indeed.com</span>
+                <p>Managed identity workflows for thousands of users. Integrated IAM tools with Workday and ServiceNow, ensuring SOC2/JSOX compliance through rigorous evidence collection.</p>
+            </div>
 
-<h2>Background</h2>
-<p>Previously supported global teams at Indeed and Netskope.</p>
+            <div class="job" style="margin-bottom: 0;">
+                <div class="job-meta">
+                    <span>MBA, Cybersecurity</span>
+                    <span>FIAP</span>
+                </div>
+                <span class="company">Education</span>
+                <p>Advanced training in information security, threat management, and defensive architecture.</p>
+            </div>
+        </div>
 
-<h2>Not a Fit If</h2>
-<ul>
-  <li>You need 24/7 helpdesk coverage</li>
-  <li>You are looking for a body-shop or staff augmentation</li>
-  <li>You need visa sponsorship or payroll employment</li>
-</ul>
+        <section class="hero" style="padding: 60px 0 100px;">
+            <h2 data-aos="fade-up">Ready to secure your stack?</h2>
+            <p data-aos="fade-up">Let's discuss how I can manage your Identity & Access needs as a dedicated contractor.</p>
+            <div class="btn-group" data-aos="fade-up">
+                <a href="https://calendar.app.google/vverzYajXJ9RC8j86" target="_blank" class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </section>
 
-<!-- Final Call to Action -->
-<div class="buttons">
-  <a class="button primary" href="https://calendar.app.google/vverzYajXJ9RC8j86" target="_blank">
-    Book a 15-min intro
-  </a>
+        <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/iuri-rocco-20aa0428/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:iuri@rocco-tech.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2026 Iuri Rocco. Built for performance and security.</p>
+        </footer>
+    </div>
 
-  <a class="button secondary" href="https://www.linkedin.com/in/iuri-rocco-20aa0428/?locale=en_US" target="_blank">
-    LinkedIn
-  </a>
-
-  <a class="button secondary" href="mailto:iuri@rocco-tech.com">
-    Email
-  </a>
-</div>
-
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
